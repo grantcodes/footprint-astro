@@ -1,14 +1,23 @@
-# Starter TS Module
+# footprint-astro
 
-This is my personal starter setup for creating TypeScript modules.
+An Astro dev toolbar integration that gives you CO2 estimates for all the resources on your Astro website.
 
-## Getting started
+## Installation
 
-To get started just copy this repo, then run `npm install` and `npx @grantcodes/commit install` to install git hooks.
+```sh
+npm install @grantcodes/footprint-astro --save-dev
+```
 
-## What's in the box?
+## Usage
 
-- [@grantcodes/commit](https://github.com/grantcodes/commit) to handle commit messages
-- [tsup](https://github.com/egoist/tsup) for TypeScript building
-- [Node.js test runner](https://nodejs.org/api/test.html) for testing
-- [Biome](https://biomejs.dev) for formatting
+astro.config.mjs
+```js
+import { defineConfig } from 'astro/config'
+import footprintAstro from '@grantcodes/footprint-astro';
+
+export default defineConfig({
+    integrations: {
+        footprintAstro,
+    }
+})
+```
