@@ -14,8 +14,8 @@ export default defineConfig((options) => {
     minify: options.watch !== true,
     clean: true,
     dts: true,
-    format: ["esm", "cjs"],
+    format: ["esm"],
     sourcemap: options.watch === true,
-    entry: ["src/main.ts"],
+    entry: ["src/integration.ts", "src/app.ts"],
   };
 });

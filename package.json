@@ -1,21 +1,25 @@
 {
-  "name": "@grantcodes/starter-ts-module",
-  "version": "1.0.1",
-  "description": "A starter package for creating a TypeScript module",
+  "name": "@grantcodes/footprint-astro",
+  "version": "1.0.0",
+  "description": "An Astro integration to show your websites CO2 output in the dev toolbar",
+  "keywords": ["astro-component", "dev-toolbar", "optimization"],
   "type": "module",
-  "main": "dist/main.cjs",
-  "module": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "module": "dist/integration.js",
+  "types": "dist/integration.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/main.d.ts",
-      "require": "./dist/main.cjs",
-      "import": "./dist/main.js"
+      "types": "./dist/integration.d.ts",
+      "import": "./dist/integration.js"
+    },
+    "./app": {
+      "types": "./dist/app.d.ts",
+      "import": "./dist/app.js"
     }
   },
   "scripts": {
-    "build": "tsup",
+    "build": "astro check && tsup",
     "watch": "tsup --watch",
+    "prepublish": "npm run build",
     "fix": "run-s fix:lint",
     "fix:lint": "npx @biomejs/biome format --write src",
     "test": "run-s test:lint test:build test:unit",
@@ -25,23 +29,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grantcodes/starter-ts-module.git"
+    "url": "git+https://github.com/grantcodes/footprint-astro.git"
   },
   "author": "grantcodes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/grantcodes/starter-ts-module/issues"
+    "url": "https://github.com/grantcodes/footprint-astro/issues"
   },
-  "homepage": "https://github.com/grantcodes/starter-ts-module#readme",
+  "homepage": "https://github.com/grantcodes/footprint-astro#readme",
   "engines": {
     "node": ">=14"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.2",
+    "@biomejs/biome": "1.9.4",
     "@grantcodes/commit": "^1.0.7",
     "npm-run-all": "^4.1.5",
     "tsup": "^8.3.0",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3",
+    "@astrojs/check": "^0.9.4",
+    "astro": "^4.16.6"
   },
   "files": [
     "dist/**/*",
@@ -49,5 +55,11 @@
     "CHANGELOG.md",
     "LICENSE",
     "README.md"
-  ]
+  ],
+  "peerDependencies": {
+    "astro": "^4.0.0"
+  },
+  "dependencies": {
+    "@grantcodes/footprint": "^1.0.9"
+  }
 }
