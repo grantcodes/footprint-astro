@@ -1,8 +1,12 @@
 {
   "name": "@grantcodes/footprint-astro",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An Astro integration to show your websites CO2 output in the dev toolbar",
-  "keywords": ["astro-component", "dev-toolbar", "optimization"],
+  "keywords": [
+    "astro-component",
+    "dev-toolbar",
+    "optimization"
+  ],
   "type": "module",
   "module": "dist/integration.js",
   "types": "dist/integration.d.ts",
